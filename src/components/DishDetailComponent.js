@@ -1,29 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
-function convertDate(date){
-    var monthNames = [
-    "Jan", "Feb", "Mar",
-    "Apr", "May", "Jun", "Jul",
-    "Aug", "Sep", "Oct",
-    "Nov", "Dec"
-  ];
 
-  var day = date.substring(8,10);
-  var monthIndex = parseInt(date.substring(5,7)) - 1;
-  var year = date.substring(0,4);
-
-  return monthNames[monthIndex] + ' ' +day + ', ' + year;
-    }
 
 
 class DishDetail extends Component{
 
-	constructor(props){
-		super(props);
-		this.renderDish = this.renderDish.bind(this);
-		this.renderComments = this.renderComments.bind(this);
-	}
 
 	 renderDish(dish){
       if(dish != null)
@@ -44,26 +26,23 @@ class DishDetail extends Component{
 
     renderComments(comments){
     	
-    		const comment = comments.map(dish =>
+    		const comment = comments.map(comment =>
     					
-    						<li key = {dish.id}>
-    						 {dish.comment}
-    						 <br/> 
-    						 <br/>
-    						 -- {dish.author} , {convertDate(dish.date.substring(0,10))}
-    						 <br />
-    						 <br />
+    						<li key = {comment.id}>
+    						 <p>{comment.comment}</p>
+    						 <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
     						</li>		
     				);
 
     		return(
     			<div>
     				<h4> Comments </h4>			
-    				<ul class = "list-unstyled"> {comment} </ul>
+    				<ul className = "list-unstyled"> {comment} </ul>
     			</div>);
     }
 
     render(){
+
     	if(this.props.selectedDish){
     	return(
     	
