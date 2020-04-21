@@ -4,10 +4,10 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 're
 
 
 
-class DishDetail extends Component{
 
 
-	 renderDish(dish){
+
+	 function RenderDish(dish){
       if(dish != null)
          return(
             <Card>
@@ -22,9 +22,9 @@ class DishDetail extends Component{
          return(<div></div>);
 
     }
-	
 
-    renderComments(comments){
+
+   function RenderComments(comments){
     	
     		const comment = comments.map(comment =>
     					
@@ -41,19 +41,22 @@ class DishDetail extends Component{
     			</div>);
     }
 
-    render(){
 
-    	if(this.props.selectedDish){
+ const  DishDetail = (props) => {
+
+
+
+    	if(props.selectedDish){
     	return(
     	
 
     	<div className='container'>
     		<div className="row">
                   <div  className="col-12 col-sm-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selectedDish)}
+                    {RenderDish(props.selectedDish)}
                   </div>
                   <div  className="col-12 col-sm-12 col-md-5 m-1">
-                   {this.renderComments(this.props.selectedDish.comments)}
+                   {RenderComments(props.selectedDish.comments)}
                   </div>
 
             </div>
@@ -65,7 +68,7 @@ class DishDetail extends Component{
 		return(<div></div>);
 
 
-    }
+    
 
 }
 
