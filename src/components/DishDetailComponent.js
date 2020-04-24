@@ -3,12 +3,12 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrum
 import { Link } from 'react-router-dom';
 
 
-	 function RenderDish(dish){
+	 function RenderDish({dish}){
 
       if(dish)
          return(
-
-            <Card>
+          
+            <Card >
                <CardImg top src = {dish.image} alt = {dish.name} />
                <CardBody>
                   <CardTitle>{dish.name}</CardTitle>
@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
     }
 
 
-   function RenderComments(comments){
+   function RenderComments({comments}){
     	
     		const comment = comments.map(comment =>{
           return(
@@ -62,10 +62,10 @@ import { Link } from 'react-router-dom';
         </div>
     		<div className="row">
           <div  className="col-12 col-sm-12 col-md-5 m-1">
-            {RenderDish(props.dish)}
+            <RenderDish dish={props.dish} />
             </div>
             <div  className="col-12 col-sm-12 col-md-5 m-1">
-            {RenderComments(props.comments)}
+            <RenderComments comments={props.comments} />
           </div>
 
         </div>
