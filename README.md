@@ -92,3 +92,5 @@ Task 3
 In this task you will use the <RenderLeader> component created in the previous task to render a list of leaders within your AboutComponent:
 
     Update the leaders variable within the AboutComponent() function to make use of the <RenderLeader> component to render the list of leaders.
+    
+![tasks](https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/W8pCMTs0EeidXxL-BXBIhA_149f11492bb865474266a93bb0285f90_Assignment2.png?expiry=1587859200000&hmac=6FCJK9iKx7qzNE9Nn_4n11IlGycEJi2ktw1Ku5Xi5Uo)
